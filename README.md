@@ -38,9 +38,23 @@ C:\Program Files (x86)\Windows Kits\10\Remote\x64\WDK Test Target Setup x64-x64_
 ![COM port for virtual machine](./images/config_remote_kernel_host.PNG)
 
 
-## Stert debugger session
+## Start debugger session
 
 1. Attach to remote kernel
 
 ![COM port for virtual machine](./images/attach_to_remote_kernel.PNG)
 
+2. Copy sys file of drivre to the virtual machine
+
+3. Place break points in driver code
+
+4. Start driver
+```
+sc create Zero type= kernel binPath= C:\Users\debuggee\Desktop\drivers\Zero.sys
+```
+5. Use additional service control commands to manage driver
+```
+sc start Zero
+sc stop Zero
+sc delete Zero
+```
